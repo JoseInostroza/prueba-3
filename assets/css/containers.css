@@ -1,0 +1,41 @@
+.container{
+    padding: 10px 8px 10px 5px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    
+    align-items: center;
+    gap: 7px;
+}
+
+.ingresos{
+    border-radius: 15px;
+    border: 2px solid #52725D;
+    background-color: #E5F9DB;
+    color: #52725D;
+}
+
+.ingresos-boton{
+    width: 45%;
+    background-color: #E5F9DB;
+    color: #52725D;
+    border: 3px solid #52725D;
+    text-align: center;
+}
+
+.egresos{
+    border-radius: 15px;
+    border: 2px solid #7C2E25;
+    background-color: #FEC4AC;
+    color: #7C2E25;
+}
+
+.egresos-boton{
+    width: 45%;
+    background-color: #FEC4AC;
+    color: #7C2E25;
+    border: 3px solid #7C2E25;
+    text-align: center;
+    
+}

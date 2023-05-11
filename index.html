@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>presupuesto APP</title>
     <link rel="icon" href="assets\img\ganancias.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/assets/css/containers.css">
+    <link rel="stylesheet" href="/assets/css/principal.css">    
 </head>
 <body>
     <nav>
@@ -15,29 +19,32 @@
         <box-icon name='info-circle' ></box-icon>
     </nav>
     <h1>PRESUPUESTO APP</h1>
-    <div class="container ingresos" id="ingrsos">
-        <label for="ingresos">Ingresa tu Presupuesto</label>
-        <input type="text" id="ingresos" name="ingresos">
-        <button class="" id="">Registrar</button>
-        <button class="" id="">Registrar y Continuar</button>
-    </div>
-
-    <div class="container egresos inactivo" id="egresos">
-        <label for="ingresos">Ingresa tu Presupuesto</label>
-        <input type="text" id="ingresos" name="ingresos">
-        <button class="" id="">Registrar Gasto</button>
-        <button class="" id="">Analisis</button>
-    </div>
-    <div class="" id="calculo">
-        <div class="" id="datos">
-            <p>Presupuesto: <span class="" id="Ingreso"></span></p>
-            <p>Gasto: <span id="gasto" class=""></span></p>
-            <p>Total: <span id="total" class=""></span></p>
+    <div class="contenido">
+        <div class="container ingresos " id="ingrsos">
+            <label for="ingresos" class="">Ingresa tu Presupuesto:</label>
+            <input type="text" id="ingresos" name="ingresos">
+            <button class="ingresos-boton ingresos__registrar" id="">Registrar</button>
+            <button class="ingresos-boton ingresos__continuar" id="">Registrar y Continuar</button>
         </div>
-        <div id="detalle">
-            <h1>Detalle</h1>
 
+        <div class="container egresos " id="egresos">
+            <label for="ingresos">Ingresa Gastos Realizados</label>
+            <input type="text" id="ingresos" name="ingresos">
+            <button class="egresos-boton" id="">Registrar Gasto</button>
+            <button class="egresos-boton" id="">Analisis</button>
         </div>
-    </div>
+    
+        <div class="" id="calculo">
+            <div class="" id="datos">
+                <p>Presupuesto: <span class="" id="Ingreso"></span></p>
+                <p>Gasto: <span id="gasto" class=""></span></p>
+                <p>Total: <span id="total" class=""></span></p>
+            </div>
+            <div id="detalle">
+                <h1>Detalle</h1>
+
+            </div>
+        </div>
+    </div>    
 </body>
 </html>

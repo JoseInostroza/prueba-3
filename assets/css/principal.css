@@ -1,12 +1,34 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
 }
 
-inactivo{
-
+button {
+  all: unset;
 }
 
-container{
-    
+body {
+  background-color: #C6E3FE;
+  font-family: 'EB Garamond', serif;
 }
+
+.contenido {
+  height: 1vh;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
+  -ms-grid-columns: (minmax(315px, 640px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(315px, 640px));
+  margin: 8px 5px;
+  gap: 8px;
+}
+
+@media screen and (max-width: 960px) {
+  .inactivo {
+    display: none;
+  }
+}
+/*# sourceMappingURL=principal.css.map */

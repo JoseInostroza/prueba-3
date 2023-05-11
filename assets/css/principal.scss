@@ -1,0 +1,30 @@
+$salto_de_pantalla: 960px;
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+button{
+    all: unset;
+}
+body{
+    background-color: #C6E3FE;
+    font-family: 'EB Garamond', serif;
+}
+.contenido{
+    height: 1vh;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(auto-fit, minmax(315px, 640px));
+    margin: 8px 5px;
+    gap: 8px;
+}
+
+
+
+@media screen and (max-width: $salto_de_pantalla) {
+    .inactivo{
+        display: none;
+    }
+}
+
