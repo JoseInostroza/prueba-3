@@ -7,7 +7,8 @@ button{
     all: unset;
 }
 body{
-    background-color: #C6E3FE;
+    background-color: #4F5C68;
+    color: #E5F9DB;
     font-family: 'EB Garamond', serif;
 }
 .contenido{
@@ -19,12 +20,32 @@ body{
     margin: 8px 5px;
     gap: 8px;
 }
+.calculo{
+    grid-column: span 2;
+}
+.datos{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+nav{
+    display: none;
+}
 
-
+h1{
+    text-align: center;
+}
 
 @media screen and (max-width: $salto_de_pantalla) {
     .inactivo{
         display: none;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        align-items: center;
+        margin: auto;
     }
 }
 

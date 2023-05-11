@@ -20,24 +20,32 @@
     </nav>
     <h1>PRESUPUESTO APP</h1>
     <div class="contenido">
-        <div class="container ingresos " id="ingrsos">
+        <div class="container ingresos " id="cont-ingresos">
             <label for="ingresos" class="">Ingresa tu Presupuesto:</label>
             <input type="text" id="ingresos" name="ingresos">
-            <button class="ingresos-boton ingresos__registrar" id="">Registrar</button>
-            <button class="ingresos-boton ingresos__continuar" id="">Registrar y Continuar</button>
+            <button class="ingresos-boton ingresos__registrar" id="registro-in">Registrar</button>
+            <button class="ingresos-boton ingresos__continuar" id="regNgo">Registrar y Continuar</button>
         </div>
 
-        <div class="container egresos " id="egresos">
+        <div class="container egresos " id="cont-egresos">
             <label for="ingresos">Ingresa Gastos Realizados</label>
-            <input type="text" id="ingresos" name="ingresos">
-            <button class="egresos-boton" id="">Registrar Gasto</button>
-            <button class="egresos-boton" id="">Analisis</button>
+            <input type="text" id="egresos" name="egresos">
+            <select name="tipo" id="tipo-egreso">
+                <option value="otros" selected>otros</option>
+                <option value="mercaderia">mercaderia</option>
+                <option value="medico">medico</option>
+                <option value="transporte">transporte</option>
+                <option value="inprevistos">inprevistos</option>
+                <option value="lujos">lujos</option>
+              </select>
+            <button class="egresos-boton" id="registro-e">Registrar</button>
+            <button class="egresos-boton" id="analisis">Analisis</button>
         </div>
     
-        <div class="" id="calculo">
-            <div class="" id="datos">
-                <p>Presupuesto: <span class="" id="Ingreso"></span></p>
-                <p>Gasto: <span id="gasto" class=""></span></p>
+        <div class="calculo" id="calculo">
+            <div class="datos" id="datos">
+                <p>Presupuesto: <span class="" id="ingreso-registrado"></span></p>
+                <p>Gasto: <span id="gasto-registrado" class=""></span></p>
                 <p>Total: <span id="total" class=""></span></p>
             </div>
             <div id="detalle">
@@ -47,4 +55,5 @@
         </div>
     </div>    
 </body>
+<script src="/assets/js/calculos.js"></script>
 </html>
