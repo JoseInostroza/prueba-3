@@ -31,9 +31,32 @@ let listaIngresos = []
 let listaGastos= []
 let id = 1
 
+function total(arr1, arr2){
+    let aux1 = 0
+    let aux2 = 0
+    arr1.forEach(i => {
+        aux1+= i['valor']
+    })
+    arr2.forEach(i =>{
+        aux2+= i['valor']
+    })
+    return aux1 - aux2
+}
+
+async function EscribirCargar(obj){
+    await(detalle.innerHTML += obj.elemento)
+    .then(
+        document.getElementById(`${obj.id}`).addEventListener('click', ()=>{
+            let filtro = listaGastos.indexOf(obj)
+            listaGastos.forEach((i)=>{
+                console.log(filtro);
+            })
+        })
+    )
+}
 
 class Dato {
-    constructor(valor,tipo,nombre = '', iconoBasura = basura, id){
+    constructor(valor,tipo,id, nombre = '', iconoBasura = basura ){
         this.valor= valor
         this.tipo= tipo
         this.nombre= nombre
@@ -41,18 +64,18 @@ class Dato {
         this.id= id
     }
     elemento(){
-        let componente= `<div class='componente_detalle'><p class='nombre_componente'>${this.nombre}</p> <span class='valor_componente'>${this.valor}</span> <button id="${this.id}">${this.boton}</button></div>`
+        let componente= `<div class='componente_detalle'><p class='nombre_componente'>${this.nombre}</p> <span class='valor_componente'>${this.valor}</span> <button id="g${this.id}">${this.boton}</button></div>`
         return componente
     }
     formatear(){
-        if(this.tipo==='ingreos'){
+        if(this.tipo==='ingresos'){
             return{
-                valor : this.valor,
+                valor : parseInt(this.valor),
                 id : `i${this.id}`
             }
         }else{
             return {
-                valor: this.valor,
+                valor: parseInt(this.valor),
                 id: `g${this.id}`,
                 icono: this.boton,
                 nombre: this.nombre,
@@ -67,6 +90,8 @@ class Dato {
             aux += parseInt(i['valor'])
         });
         return aux
+        
+        
     }
 }
 //validacion de datos ingresados para descartar los no numericos y dar avisos
@@ -74,12 +99,18 @@ class Dato {
 
 //boton para agregar datos de ingresos
 btnRegistroIn.addEventListener('click', ()=>{
-    let aux = new Dato(ingresos.value, ingresos.id)
+    let aux = new Dato(ingresos.value, ingresos.id, id)
     let datoActual = aux.formatear()
     infoIn.innerText = aux.actualizarResumen(listaIngresos,datoActual)
+    infoTotal.innerText = total(listaIngresos,listaGastos)
     id+=1
 })
 
 btnRegistroE.addEventListener('click', ()=> {
-    
+    let aux = new Dato(egresos.value, egresos.id, id, egresosNombre.value)
+    let datoActual = aux.formatear()
+    infoE.innerText = aux.actualizarResumen(listaGastos,datoActual)
+    infoTotal.innerText = total(listaIngresos,listaGastos)
+    id+=1
+    EscribirCargar(datoActual)
 })
