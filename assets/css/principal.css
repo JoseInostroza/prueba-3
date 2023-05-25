@@ -1,6 +1,5 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
 }
 
@@ -11,18 +10,15 @@ button {
 body {
   background-color: #4F5C68;
   color: #E5F9DB;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
 }
 
 .contenido {
   height: 1vh;
-  display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
-  grid-auto-rows: -webkit-min-content;
   grid-auto-rows: min-content;
-  -ms-grid-columns: (minmax(315px, 640px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(315px, 640px));
+  grid-template-columns: repeat(auto-fit, minmax(315px, 640px));
   margin: 8px 5px;
   gap: 8px;
 }
@@ -32,11 +28,8 @@ body {
 }
 
 .datos {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   font-size: 20px;
 }
 
@@ -48,22 +41,23 @@ h1 {
   text-align: center;
 }
 
-@media screen and (max-width: 960px) {
-  .inactivo {
-    display: none;
-  }
-  nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 95%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: auto;
-  }
+#detalle {
+  display: flex;
+  width: 90%;
+  height: auto;
+  margin: auto;
 }
-/*# sourceMappingURL=principal.css.map */
+#detalle div {
+  font-size: larger;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: space-between;
+}
+#detalle div p {
+  margin: auto;
+}
+#detalle div button:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=principal.css.map */

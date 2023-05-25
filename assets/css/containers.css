@@ -1,10 +1,10 @@
 .container{
     padding: 10px 8px 10px 5px;
+    padding: auto;
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    
     align-items: center;
     gap: 7px;
 }
@@ -23,6 +23,11 @@
     border: 3px solid #52725D;
     text-align: center;
 }
+.ingresos-boton:hover{
+    color: #E5F9DB;
+    background-color: #52725D;
+    cursor: pointer;
+}
 
 .egresos{
     border-radius: 15px;
@@ -38,4 +43,9 @@
     border: 3px solid #7C2E25;
     text-align: center;
     
+}
+
+.egresos-boton:hover{
+    color: #FEC4AC;
+    background-color: #7C2E25;
 }

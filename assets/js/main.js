@@ -2,7 +2,7 @@ class Gasto {
   constructor(id, nombre, monto) {
     this.id = id;
     this.nombre = nombre;
-    this.monto = monto;
+    this.monto = parseInt(monto) ;
   }
 }
 
@@ -25,12 +25,12 @@ class Finanza {
   }
 
   agregarGasto(gasto) {
-    if (this.presupuesto - gasto.monto < 0) {
-      return "No hay saldo suficiente.";
+    if ((this.presupuesto - this.totalGastos()) <= 0) {
+      return false;
     } else {
       this.gastos.push(gasto);
-      return "Gasto ingresado correctamente";
-    }
+      return true;
+    } 
   }
 
   eliminarGasto(id) {
@@ -38,32 +38,27 @@ class Finanza {
     return this.gastos;
   }
   agregarSaldo(ingreso) {
-    this.presupuesto += ingreso;
+    this.presupuesto += parseInt(ingreso);
   }
 }
 let id = 0;
 let cartera = new Finanza();
 
-const recargarDetalleGastos = (lista) => {
+const manejarDetalleGastos = (lista) => {
   let filas = "";
-
   lista.gastos.forEach((gasto) => {
     filas += `
-    
-            <div>
-    
-                <p>${gasto.nombre}</p>
-    
-                <p>${gasto.monto}</p>
-    
-                <p><button onclick="eliminarGasto('${gasto.id}')">${basura}</button></p>  
-    
-            </div>`;
+    <div>
+      <p>${gasto.nombre}</p>
+      <p>${gasto.monto}</p>
+      <p><button onclick="eliminarGasto('${gasto.id}')">${basura}</button></p>
+    </div>`;
   });
+  return filas
 };
 
 btnRegistroSaldo.addEventListener("click", () => {
-  cartera.agregarSaldo(parseInt(ingresos.value));
+  cartera.agregarSaldo(ingresos.value);
   ingresos.value = "";
   infoIn.innerText = cartera.presupuesto;
   infoTotal.innerText = cartera.consultarSaldo()
@@ -71,6 +66,22 @@ btnRegistroSaldo.addEventListener("click", () => {
 
 btnRegistroGasto.addEventListener('click', ()=>{
   let respuesta = cartera.agregarGasto(new Gasto(`${id}`, gastoNombre.value, gastoMonto.value))
-  console.log(respuesta);
+  if(respuesta){
+    infoE.innerText = cartera.totalGastos()
+    infoTotal.innerText = cartera.consultarSaldo()
+    gastosDetallados = manejarDetalleGastos(cartera)
+    detalle.innerHTML = gastosDetallados
+  }else{
+    console.log('Saldo insufuciente');
+  };
+  gastoNombre.value = ''
+  gastoMonto.value = ''
   id+=1
 })
+
+ function eliminarGasto(id){
+  let nuevoDetalle = cartera.eliminarGasto(id)
+  detalle.innerHTML = manejarDetalleGastos(cartera)
+  infoE.innerText = cartera.totalGastos()
+  infoTotal.innerText = cartera.consultarSaldo()
+ }

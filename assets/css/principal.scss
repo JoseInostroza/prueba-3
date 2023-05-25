@@ -36,16 +36,23 @@ h1{
     text-align: center;
 }
 
-@media screen and (max-width: $salto_de_pantalla) {
-    .inactivo{
-        display: none;
-    }
-    nav{
-        display: flex;
-        justify-content: space-between;
-        width: 95%;
+#detalle{
+    display: flex;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    div{
+        font-size: larger;
+        font-weight: 600;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
-        margin: auto;
+        justify-items: space-between;
+        p{
+            margin: auto;
+        }
+        button:hover{
+            cursor: pointer;
+        };
     }
 }
-
